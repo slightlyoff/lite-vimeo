@@ -82,11 +82,11 @@ export class LiteVimeoEmbed extends HTMLElement {
   }
 
   get videoStartAt(): string {
-    return this.getAttribute('videoPlay') || '0s';
+    return this.getAttribute('start') || '0s';
   }
 
   set videoStartAt(time: string) {
-    this.setAttribute('videoPlay', time);
+    this.setAttribute('start', time);
   }
 
   get autoLoad(): boolean {
