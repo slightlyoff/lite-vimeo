@@ -15,7 +15,6 @@
  *   https://github.com/Daugilas/lazyYT https://github.com/vb/lazyframe
  */
 
-
 /*
  * Vimeo example embed markup:
 <iframe src="https://player.vimeo.com/video/364402896"
@@ -113,7 +112,6 @@ export class LiteVimeoEmbed extends HTMLElement {
     }
   }
 
-
   /**
    * Define our shadowDOM for the component
    */
@@ -167,6 +165,7 @@ export class LiteVimeoEmbed extends HTMLElement {
           border-radius: 10%;
           transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
           border: 0;
+          cursor: pointer;
         }
         #frame:hover .lvo-playbtn {
           background-color: rgb(98, 175, 237);
@@ -223,9 +222,8 @@ export class LiteVimeoEmbed extends HTMLElement {
         '#jpegPlaceholder',
       )!,
     };
-    this.domRefPlayButton = this.shadowRoot.querySelector<HTMLButtonElement>(
-      '.lvo-playbtn',
-    )!;
+    this.domRefPlayButton =
+      this.shadowRoot.querySelector<HTMLButtonElement>('.lvo-playbtn')!;
   }
 
   /**
@@ -289,11 +287,11 @@ export class LiteVimeoEmbed extends HTMLElement {
        *  </iframe>
        */
       // FIXME: add a setting for autoplay
-      const apValue = ((this.autoLoad && this.autoPlay) || (!this.autoLoad)) ?
-                        "autoplay=1" : "";
+      const apValue =
+        (this.autoLoad && this.autoPlay) || !this.autoLoad ? 'autoplay=1' : '';
       const srcUrl = new URL(
         `/video/${this.videoId}?${apValue}&#t=${this.videoStartAt}`,
-        "https://player.vimeo.com/"
+        'https://player.vimeo.com/',
       );
 
       // TODO: construct src value w/ URL constructor
@@ -326,14 +324,12 @@ export class LiteVimeoEmbed extends HTMLElement {
     // Extract the image id, e.g. 819916979, from a URL like:
     // thumbnail_large: "https://i.vimeocdn.com/video/819916979_640.jpg"
     const tnLarge = apiResponse.thumbnail_large;
-    const imgId = (tnLarge.substr(tnLarge.lastIndexOf("/") + 1)).split("_")[0];
+    const imgId = tnLarge.substr(tnLarge.lastIndexOf('/') + 1).split('_')[0];
 
     // const posterUrlWebp =
     //    `https://i.ytimg.com/vi_webp/${this.videoId}/hqdefault.webp`;
-    const posterUrlWebp =
-          `https://i.vimeocdn.com/video/${imgId}.webp?mw=1100&mh=619&q=70`;
-    const posterUrlJpeg =
-          `https://i.vimeocdn.com/video/${imgId}.jpg?mw=1100&mh=619&q=70`;
+    const posterUrlWebp = `https://i.vimeocdn.com/video/${imgId}.webp?mw=1100&mh=619&q=70`;
+    const posterUrlJpeg = `https://i.vimeocdn.com/video/${imgId}.jpg?mw=1100&mh=619&q=70`;
     this.domRefImg.webp.srcset = posterUrlWebp;
     this.domRefImg.jpeg.srcset = posterUrlJpeg;
     this.domRefImg.fallback.src = posterUrlJpeg;
