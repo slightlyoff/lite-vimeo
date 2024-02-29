@@ -3,3 +3,7 @@ package-lock.json
 *.js
 *.map
 *.d.ts
+src/
+.parcel-cache
+/dist
+/.vscode

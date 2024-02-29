@@ -1,12 +1,13 @@
 {
-  "name": "@slightlyoff/lite-vimeo",
-  "description": "A web component that loads Vimeo embed iframes faster. ShadowDom based version of Paul Irish' concept.",
-  "author": "Alex Russell <slightlyoff@gmail.com>",
+  "name": "choctaw-nation/lite-vimeo",
+  "description": "A web component that loads Vimeo embed iframes faster. Extends Alex Russell (@slightlyoff)'s version to allow unlisted videos.",
+  "author": "Choctaw Nation of Oklahoma",
   "repository": {
     "type": "git",
-    "url": "git@github.com:slightlyoff/lite-vimeo.git"
+    "url": "git@github.com:choctaw-nation/lite-vimeo.git"
   },
   "scripts": {
+    "start": "parcel src/index.html",
     "build": "tsc --project tsconfig.json",
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "lint:eslint": "eslint *.ts --ignore-path .gitignore",
@@ -19,10 +20,8 @@
     "lite-vimeo.js.map"
   ],
   "license": "MIT",
-  "version": "0.1.2",
-  "main": "lite-vimeo.js",
-  "module": "lite-vimeo.js",
-  "types": "lite-vimeo.d.ts",
+  "version": "0.1.0",
+  "main": "src/index.js",
   "keywords": [
     "web components",
     "vimeo"
@@ -35,6 +34,7 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-html": "^6.0.0",
     "eslint-plugin-lit": "^1.2.0",
+    "parcel": "^2.12.0",
     "prettier": "^2.0.0",
     "typescript": "^3.8.0"
   }
