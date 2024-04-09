@@ -1,7 +1,7 @@
 /**
- * The shadowDom / Intersection Observer version of Paul's concept:
- * https://github.com/paulirish/lite-youtube-embed
+ * An updated version of the `lite-vimeo` web component
  *
+ * @link https://github.com/slightlyoff/lite-vimeo
  */
 class LiteVimeo extends HTMLElement {
 	/**
