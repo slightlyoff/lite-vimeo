@@ -3,7 +3,7 @@
  * https://github.com/paulirish/lite-youtube-embed
  *
  */
-class LiteVimeoEmbed extends HTMLElement {
+class LiteVimeo extends HTMLElement {
 	/**
 	 * The Shadow DOM Root
 	 *
@@ -480,5 +480,5 @@ class LiteVimeoEmbed extends HTMLElement {
 	}
 }
 
-customElements.define('lite-vimeo', LiteVimeoEmbed);
-module.exports = LiteVimeoEmbed;
+customElements.define('lite-vimeo', LiteVimeo);
+module.exports = LiteVimeo;
