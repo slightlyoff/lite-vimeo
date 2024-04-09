@@ -4,8 +4,8 @@
 
 ## Features
 
--   No dependencies; it's just a vanilla web component.
--   It's fast yo.
+-   No dependencies; it's just a vanilla JS & a web component.
+-   It's fast 🏎️.
 -   It's Shadow Dom encapsulated!
 -   It's responsive 16:9
 -   It's accessible via keyboard and will set ARIA via the `videotitle` attribute
@@ -13,8 +13,8 @@
 -   Set the `start` attribute to start at a particular place in a video
 -   You can set `autoload` to use Intersection Observer to load the iframe when scrolled into view.
 -   Loads placeholder image as WebP with a Jpeg fallback
--   Allows unlisted vimeo videos
 -   Allows custom placeholder images
+-   Allows unlisted vimeo videos
 
 ## Install
 
