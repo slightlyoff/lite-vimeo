@@ -4,3 +4,4 @@ demo/
 .parcel-cache
 /build
 /.vscode
+.DS_Store

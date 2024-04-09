@@ -272,21 +272,21 @@ var $82cbb5a2f3a1bcd0$exports = {};
 	 * Inject the iframe into the component body
 	 */ addIframe() {
         if (!this.iframeLoaded) {
-            const apValue = this.bgVideo ? this.getIFrameParams() : this.autoLoad && this.autoPlay || !this.autoLoad ? "autoplay=1&muted=1" : "";
-            const url = `/video/${this.videoId}` + (this.isUnlisted ? `?h=${this.hash}&${apValue}&#t=${this.videoStartAt}` : `?${apValue}&#t=${this.videoStartAt}`);
+            const queryParams = this.getIFrameParams();
+            const url = `/video/${this.videoId}` + (this.isUnlisted ? `?h=${this.hash}&${queryParams}` : `?${queryParams}`);
             const srcUrl = new URL(url, "https://player.vimeo.com/");
             const iframeHTML = `
-		<iframe frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope" allowfullscreen ${this.bgVideo ? `autoplay="true" muted="true"` : ""} src="${srcUrl}"></iframe>`;
+		<iframe frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope" allowfullscreen autoplay="true" ${this.autoPlay ? `muted="true"` : ""} src="${srcUrl}"></iframe>`;
             this.domRefFrame.insertAdjacentHTML("beforeend", iframeHTML);
             this.domRefFrame.classList.add("lvo-activated");
             this.iframeLoaded = true;
         }
     }
     /**
-	 *
+	 * Gets the Vimeo iFrame src parameters
 	 * @returns {string} the iframe parameters
 	 */ getIFrameParams() {
-        return `dnt=1&&controls=0&hd=1&autohide=1&loop=1&muted=1&autoplay=1`;
+        return `dnt=1&hd=1&autohide=1&loop=1&autoplay=1${this.autoPlay ? "&muted=1" : ""}&#t=${this.videoStartAt}`;
     }
     /**
 	 * Setup the placeholder image for the component

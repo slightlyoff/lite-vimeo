@@ -1,7 +1,7 @@
 {
-	"name": "lite-vimeo-embed",
+	"name": "@choctawnationofoklahoma/lite-vimeo-embed",
 	"description": "A web component that loads Vimeo embed iframes faster. Extends Alex Russell (@slightlyoff)'s version to allow unlisted videos.",
-	"author": "Choctaw Nation of Oklahoma",
+	"author": "KJ Roelke",
 	"type": "module",
 	"prettier": "@wordpress/prettier-config",
 	"repository": {
@@ -9,7 +9,7 @@
 		"url": "git@github.com:choctaw-nation/lite-vimeo.git"
 	},
 	"license": "MIT",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"main": "dist/lite-vimeo-embed.js",
 	"targets": {
 		"main": {

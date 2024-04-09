@@ -2,8 +2,6 @@
 
 > A web component that displays Vimeo embeds faster. Based on @slightlyoff's work, this extends the component to allow for custom image placeholders and unlisted videos.
 
-This is basically a rebadge of Justin's component, but for Vimeo.
-
 ## Features
 
 -   No dependencies; it's just a vanilla web component.
