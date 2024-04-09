@@ -1,9 +1,6 @@
 node_modules
 package-lock.json
-*.js
-*.map
-*.d.ts
-src/
+demo/
 .parcel-cache
-/dist
+/build
 /.vscode
