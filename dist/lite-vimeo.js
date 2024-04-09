@@ -1,9 +1,9 @@
 var $82cbb5a2f3a1bcd0$exports = {};
 /**
- * The shadowDom / Intersection Observer version of Paul's concept:
- * https://github.com/paulirish/lite-youtube-embed
+ * An updated version of the `lite-vimeo` web component
  *
- */ class $82cbb5a2f3a1bcd0$var$LiteVimeoEmbed extends HTMLElement {
+ * @link https://github.com/slightlyoff/lite-vimeo
+ */ class $82cbb5a2f3a1bcd0$var$LiteVimeo extends HTMLElement {
     /**
 	 * The Shadow DOM Root
 	 *
@@ -44,7 +44,7 @@ var $82cbb5a2f3a1bcd0$exports = {};
         ];
     }
     connectedCallback() {
-        this.addEventListener("pointerover", $82cbb5a2f3a1bcd0$var$LiteVimeoEmbed.warmConnections, {
+        this.addEventListener("pointerover", LiteVimeoEmbed.warmConnections, {
             once: true
         });
         this.addEventListener("click", ()=>this.addIframe());
@@ -295,7 +295,7 @@ var $82cbb5a2f3a1bcd0$exports = {};
 	 */ initImagePlaceholder = async ()=>{
         if (this.isUnlisted) return;
         // we don't know which image type to preload, so warm the connection
-        $82cbb5a2f3a1bcd0$var$LiteVimeoEmbed.preconnected || $82cbb5a2f3a1bcd0$var$LiteVimeoEmbed.addPrefetch("preconnect", "https://i.vimeocdn.com/");
+        LiteVimeoEmbed.preconnected || LiteVimeoEmbed.addPrefetch("preconnect", "https://i.vimeocdn.com/");
         const apiUrl = `https://vimeo.com/api/v2/video/${this.videoId}.json`;
         const apiResponse = (await (await fetch(apiUrl)).json())[0];
         const tnLarge = apiResponse.thumbnail_large;
@@ -322,7 +322,7 @@ var $82cbb5a2f3a1bcd0$exports = {};
             const observer = new IntersectionObserver((entries, observer)=>{
                 entries.forEach((entry)=>{
                     if (entry.isIntersecting && !this.iframeLoaded) {
-                        $82cbb5a2f3a1bcd0$var$LiteVimeoEmbed.warmConnections();
+                        LiteVimeoEmbed.warmConnections();
                         this.addIframe();
                         observer.unobserve(this);
                     }
@@ -358,7 +358,7 @@ var $82cbb5a2f3a1bcd0$exports = {};
 	 *
 	 * @returns {void}
 	 */ static warmConnections() {
-        if ($82cbb5a2f3a1bcd0$var$LiteVimeoEmbed.preconnected) return;
+        if (LiteVimeoEmbed.preconnected) return;
         const vimeoAssets = {
             preconnect: [
                 "https://f.vimeocdn.com",
@@ -367,13 +367,13 @@ var $82cbb5a2f3a1bcd0$exports = {};
             ]
         };
         Object.entries(vimeoAssets).forEach(([kind, urls])=>{
-            urls.forEach((url)=>$82cbb5a2f3a1bcd0$var$LiteVimeoEmbed.addPrefetch(kind, url));
+            urls.forEach((url)=>LiteVimeoEmbed.addPrefetch(kind, url));
         });
-        $82cbb5a2f3a1bcd0$var$LiteVimeoEmbed.preconnected = true;
+        LiteVimeoEmbed.preconnected = true;
     }
 }
-customElements.define("lite-vimeo", $82cbb5a2f3a1bcd0$var$LiteVimeoEmbed);
-$82cbb5a2f3a1bcd0$exports = $82cbb5a2f3a1bcd0$var$LiteVimeoEmbed;
+customElements.define("lite-vimeo", $82cbb5a2f3a1bcd0$var$LiteVimeo);
+$82cbb5a2f3a1bcd0$exports = $82cbb5a2f3a1bcd0$var$LiteVimeo;
 
 
 export {$82cbb5a2f3a1bcd0$exports as default};
