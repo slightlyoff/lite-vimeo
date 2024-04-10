@@ -1,5 +1,4 @@
 node_modules
-package-lock.json
 demo/
 .parcel-cache
 /build

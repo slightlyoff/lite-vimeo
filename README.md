@@ -108,4 +108,4 @@ flexibility.
 | `autoload`   | Use Intersection Observer to load iframe when scrolled into view            | `false` |
 | `autoplay`   | Video attempts to play automatically if auto-load set and browser allows it | `false` |
 | `start`      | Set the point at which the video should start, in seconds                   | `0`     |
-| `unlisted`   | An attribute flag whose existence declares the videoid as unlisted          | (empty) |
+| `unlisted`   | An attribute flag whose existence declares the videoid as unlisted          |         |
