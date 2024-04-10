@@ -1,7 +1,0 @@
-.github
-.parcel-cache
-.vscode
-/build
-/demo
-/node_modules
-.DS_Store
