@@ -1,7 +1,7 @@
 name: Build & Deploy to NPM
 on:
     push:
-        branches: main
+        branches: cno-main
 
 jobs:
     publish:
