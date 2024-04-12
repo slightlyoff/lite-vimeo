@@ -9,7 +9,7 @@
 		"url": "git@github.com:choctaw-nation/lite-vimeo.git"
 	},
 	"license": "MIT",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"main": "dist/lite-vimeo.js",
 	"targets": {
 		"main": {

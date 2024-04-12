@@ -53,7 +53,7 @@ class LiteVimeo extends HTMLElement {
 	}
 
 	connectedCallback() {
-		this.addEventListener('pointerover', LiteVimeoEmbed.warmConnections, {
+		this.addEventListener('pointerover', LiteVimeo.warmConnections, {
 			once: true,
 		});
 
@@ -373,12 +373,9 @@ class LiteVimeo extends HTMLElement {
 		}
 
 		// we don't know which image type to preload, so warm the connection
-		LiteVimeoEmbed.preconnected
+		LiteVimeo.preconnected
 			? null
-			: LiteVimeoEmbed.addPrefetch(
-					'preconnect',
-					'https://i.vimeocdn.com/'
-				);
+			: LiteVimeo.addPrefetch('preconnect', 'https://i.vimeocdn.com/');
 
 		const apiUrl = `https://vimeo.com/api/v2/video/${this.videoId}.json`;
 		const apiResponse = (await (await fetch(apiUrl)).json())[0];
@@ -421,7 +418,7 @@ class LiteVimeo extends HTMLElement {
 			const observer = new IntersectionObserver((entries, observer) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting && !this.iframeLoaded) {
-						LiteVimeoEmbed.warmConnections();
+						LiteVimeo.warmConnections();
 						this.addIframe();
 						observer.unobserve(this);
 					}
@@ -464,7 +461,7 @@ class LiteVimeo extends HTMLElement {
 	 * @returns {void}
 	 */
 	static warmConnections() {
-		if (LiteVimeoEmbed.preconnected) return;
+		if (LiteVimeo.preconnected) return;
 		const vimeoAssets = {
 			preconnect: [
 				'https://f.vimeocdn.com',
@@ -473,10 +470,10 @@ class LiteVimeo extends HTMLElement {
 			],
 		};
 		Object.entries(vimeoAssets).forEach(([kind, urls]) => {
-			urls.forEach((url) => LiteVimeoEmbed.addPrefetch(kind, url));
+			urls.forEach((url) => LiteVimeo.addPrefetch(kind, url));
 		});
 
-		LiteVimeoEmbed.preconnected = true;
+		LiteVimeo.preconnected = true;
 	}
 }
 
