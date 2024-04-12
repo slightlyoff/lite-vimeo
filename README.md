@@ -33,14 +33,6 @@ After install, import into your project:
 import '@choctawnationofoklahoma/lite-vimeo';
 ```
 
-## Install with CDN
-
-If you want the paste-and-go version, you can simply load it via CDN:
-
-```html
-<script type="module" src="https://cdn.jsdelivr.net/npm/@choctawnationofoklahoma@1.0.0/lite-vimeo.js">
-```
-
 ## Basic Usage
 
 ```html
@@ -109,3 +101,9 @@ flexibility.
 | `autoplay`   | Video attempts to play automatically if auto-load set and browser allows it | `false` |
 | `start`      | Set the point at which the video should start, in seconds                   | `0`     |
 | `unlisted`   | An attribute flag whose existence declares the videoid as unlisted          |         |
+
+---
+
+## Contributing
+
+1. Create a PR and tag @kjroelke as a reviewer.
