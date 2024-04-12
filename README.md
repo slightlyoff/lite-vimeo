@@ -1,10 +1,10 @@
 # \<lite-vimeo\>
 
-> A web component that displays Vimeo embeds faster. Based on @slightlyoff's work, this extends the component to allow for custom image placeholders and unlisted videos.
+> A web component that displays Vimeo embeds faster. Based on @slightlyoff's work (among others), this extends the component to allow for custom image placeholders and unlisted videos.
 
 ## Features
 
--   No dependencies; it's just a vanilla JS & a web component.
+-   No dependencies; it's just vanilla JS & a web component.
 -   It's fast 🏎️.
 -   It's Shadow Dom encapsulated!
 -   It's responsive 16:9
@@ -33,77 +33,35 @@ After install, import into your project:
 import '@choctawnationofoklahoma/lite-vimeo';
 ```
 
-## Basic Usage
+## Basic Examples
 
-```html
-<lite-vimeo videoid="364402896"></lite-vimeo>
-<!-- or, for unlisted videos -->
-<lite-vimeo videoid="364402896/8d5a941a12" unlisted></lite-vimeo>
-```
-
-## Add Video Title
-
-```html
-<lite-vimeo videoid="364402896" videotitle="This is a video title"></lite-vimeo>
-```
-
-## Change "Play" for Locale</h3>
-
-```html
-<lite-vimeo
-	videoid="364402896"
-	videoplay="Mire"
-	videotitle="El vídeo más fantástico en tódo el mundo"
-></lite-vimeo>
-```
-
-## Style It
-
-Height and Width are responsive in the component.
-
-```html
-<style>
-	.style-it {
-		width: 400px;
-		margin: auto;
-	}
-</style>
-<div class="style-it">
-	<lite-vimeo videoid="364402896"></lite-vimeo>
-</div>
-```
-
-## AutoLoad with IntersectionObserver
-
-Uses Intersection Observer if available to automatically load the Vimeo iframe when scrolled into view.
-
-```html
-<lite-vimeo videoid="364402896" autoload></lite-vimeo>
-```
-
-## Auto Play (requires AutoLoad)
-
-```html
-<lite-vimeo videoid="364402896" autoload autoplay></lite-vimeo>
-```
+-   These have moved! See them at the [Github Wiki page](https://github.com/choctaw-nation/lite-vimeo/wiki/Basic-Examples).
 
 ## Attributes
 
 The web component allows certain attributes to be give a little additional
 flexibility.
 
-| Name         | Description                                                                 | Default |
-| ------------ | --------------------------------------------------------------------------- | ------- |
-| `videoid`    | The Vimeo videoid                                                           | ``      |
-| `videotitle` | The title of the video                                                      | `Video` |
-| `videoplay`  | The title of the play button (for translation)                              | `Play`  |
-| `autoload`   | Use Intersection Observer to load iframe when scrolled into view            | `false` |
-| `autoplay`   | Video attempts to play automatically if auto-load set and browser allows it | `false` |
-| `start`      | Set the point at which the video should start, in seconds                   | `0`     |
-| `unlisted`   | An attribute flag whose existence declares the videoid as unlisted          |         |
+| Name                | Description                                                                 | Default  |
+| ------------------- | --------------------------------------------------------------------------- | -------- |
+| `videoid`\*         | The Vimeo videoid (required)                                                | ``       |
+| `videotitle`        | The title of the video                                                      | `Video`  |
+| `videoplay`         | The title of the play button (for translation)                              | `Play`   |
+| `autoload`          | Use Intersection Observer to load iframe when scrolled into view            | `false`  |
+| `autoplay`          | Video attempts to play automatically if auto-load set and browser allows it | `false`  |
+| `start`             | Set the point at which the video should start, in seconds                   | `0`      |
+| `unlisted`          | An attribute flag whose existence declares the videoid as unlisted          |          |
+| `customPlaceholder` | A valid url to load a custom placeholder image                              | `string` |
 
 ---
 
 ## Contributing
 
-1. Create a PR and tag @kjroelke as a reviewer.
+1. Create a PR
+2. Tag @kjroelke as a reviewer.
+
+---
+
+## Misc.
+
+I also wrote a script to track videos views with Google Tag Manager. Since it's in the ShadowDOM, it gets a bit tricky, so [here's a link to that repo](https://github.com/choctaw-nation/gtm-lite-vimeo).

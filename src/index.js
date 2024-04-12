@@ -191,14 +191,9 @@ class LiteVimeo extends HTMLElement {
         #frame {
           cursor: pointer;
         }
-
-       ${
-			this.bgVideo
-				? ''
-				: `
-				#fallbackPlaceholder {
-					object-fit: cover;
-				}
+		#fallbackPlaceholder {
+			object-fit: cover;
+		}
 
 	  #frame::before {
 		content: '';
@@ -253,9 +248,9 @@ class LiteVimeo extends HTMLElement {
 	  .lvo-activated .lvo-playbtn,
 	  .lvo-activated picture {
 		display: none;
-	  }`
-		}
-      </style>`;
+	  }
+	}
+    </style>`;
 		return styles;
 	}
 
