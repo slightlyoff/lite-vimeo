@@ -10,7 +10,13 @@ class LiteVimeo extends HTMLElement {
 	 * @type {ShadowRoot}
 	 */
 	shadowRoot;
+
+	/**
+	 * Whether the iframe has been loaded
+	 * @type {boolean}
+	 */
 	iframeLoaded = false;
+
 	/**
 	 * The `div#frame` of the shadowDOM that the iframe will be inserted into
 	 *
@@ -23,17 +29,24 @@ class LiteVimeo extends HTMLElement {
 	 * @type {{fallback: HTMLImageElement, webp: HTMLSourceElement, jpeg: HTMLSourceElement}}
 	 */
 	domRefImg;
+
 	/**
 	 * The play button element
 	 * @type {HTMLButtonElement}
 	 */
 	domRefPlayButton;
+	
 	/**
 	 * The private hash for unlisted videos
 	 *
 	 * @type {string|undefined}
 	 */
 	hash = undefined;
+
+	/**
+	 * The title of the video
+	 * @type {string}
+	 */
 	videoTitle = 'Video';
 
 	/**
@@ -65,11 +78,11 @@ class LiteVimeo extends HTMLElement {
 	}
 
 	get hasCustomPlaceholder() {
-		return this.hasAttribute('customPlaceholder');
+		return this.hasAttribute('customplaceholder');
 	}
 
 	get customPlaceholder() {
-		return this.getAttribute('customPlaceholder') || '';
+		return this.getAttribute('customplaceholder') || '';
 	}
 
 	get videoId() {
@@ -94,7 +107,7 @@ class LiteVimeo extends HTMLElement {
 	}
 
 	get videoPlay() {
-		return this.getAttribute('videoPlay') || 'Play';
+		return this.getAttribute('videoplay') || 'Play';
 	}
 
 	/**
@@ -102,11 +115,29 @@ class LiteVimeo extends HTMLElement {
 	 * @param {string} name
 	 */
 	set videoPlay(name) {
-		this.setAttribute('videoPlay', name);
+		this.setAttribute('videoplay', name);
+	}
+
+	/**
+	 * Get the title of the video
+	 * @returns {string} the video title or "Video"
+	 */
+	get videoTitle() {
+		return this.getAttribute('videotitle') || 'Video';
+	}
+
+	/**
+	 * Set the title of the video
+	 * 
+	 * @param {string} title the title of the video
+	 */
+	set videoTitle(title) {
+		this.setAttribute('videotitle', title);
 	}
 
 	/**
 	 * Get the start time of the video
+	 * @returns {string} the start time or "0s"
 	 */
 	get videoStartAt() {
 		return this.getAttribute('start') || '0s';
@@ -115,11 +146,16 @@ class LiteVimeo extends HTMLElement {
 	/**
 	 * Set the start time of the video
 	 * @param {string} time
+	 * 
 	 */
 	set videoStartAt(time) {
 		this.setAttribute('start', time);
 	}
 
+	/**
+	 * Get the autoLoad property
+	 * @returns {boolean} the autoLoad property
+	 */
 	get autoLoad() {
 		return this.hasAttribute('autoload');
 	}
@@ -137,6 +173,10 @@ class LiteVimeo extends HTMLElement {
 		}
 	}
 
+	/**
+	 * Get the autoPlay property
+	 * @returns {boolean} the autoPlay property
+	 */
 	get autoPlay() {
 		return this.hasAttribute('autoplay');
 	}
