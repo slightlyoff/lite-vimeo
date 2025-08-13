@@ -42,7 +42,7 @@ import '@slightlyoff/lite-vimeo';
 If you want the paste-and-go version, you can simply load it via CDN:
 
 ```html
-<script type="module" src="https://cdn.jsdelivr.net/npm/@slightlyoff/lite-vimeo@0.1.1/lite-vimeo.js">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@slightlyoff/lite-vimeo@0.1.3/lite-vimeo.js">
 ```
 
 ## Basic Usage
@@ -112,11 +112,11 @@ Uses Intersection Observer if available to automatically load the Vimeo iframe w
 The web component allows certain attributes to be give a little additional
 flexibility.
 
-| Name         | Description                                                      | Default |
-| ------------ | ---------------------------------------------------------------- | ------- |
-| `videoid`    | The Vimeo videoid                                              | ``      |
-| `videotitle` | The title of the video                                           | `Video` |
-| `videoplay`  | The title of the play button (for translation)                   | `Play`  |
-| `autoload`   | Use Intersection Observer to load iframe when scrolled into view | `false` |
+| Name         | Description                                                                 | Default |
+| ------------ | --------------------------------------------------------------------------- | ------- |
+| `videoid`    | The Vimeo videoid                                                           | ``      |
+| `videotitle` | The title of the video                                                      | `Video` |
+| `videoplay`  | The title of the play button (for translation)                              | `Play`  |
+| `autoload`   | Use Intersection Observer to load iframe when scrolled into view            | `false` |
 | `autoplay`   | Video attempts to play automatically if auto-load set and browser allows it | `false` |
-| `start`      | Set the point at which the video should start, in seconds        | `0`     |
+| `start`      | Set the point at which the video should start, in seconds                   | `0`     |

@@ -3,7 +3,7 @@
  * The shadowDom / Intersection Observer version of Paul's concept:
  * https://github.com/paulirish/lite-youtube-embed
  *
- * A lightweight YouTube embed. Still should feel the same to the user, just
+ * A lightweight Vimeo embed. Still should feel the same to the user, just
  * MUCH faster to initialize and paint.
  *
  * Thx to these as the inspiration
