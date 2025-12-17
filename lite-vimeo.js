@@ -34,7 +34,7 @@ export class LiteVimeoEmbed extends HTMLElement {
         this.setupDom();
     }
     static get observedAttributes() {
-        return ['videoid'];
+        return ['videoid', 'poster'];
     }
     connectedCallback() {
         this.addEventListener('pointerover', LiteVimeoEmbed.warmConnections, {
@@ -92,6 +92,17 @@ export class LiteVimeoEmbed extends HTMLElement {
         }
         else {
             this.removeAttribute('autoplay');
+        }
+    }
+    get poster() {
+        return this.getAttribute('poster');
+    }
+    set poster(url) {
+        if (url) {
+            this.setAttribute('poster', url);
+        }
+        else {
+            this.removeAttribute('poster');
         }
     }
     /**
@@ -273,11 +284,23 @@ export class LiteVimeoEmbed extends HTMLElement {
      * Setup the placeholder image for the component
      */
     async initImagePlaceholder() {
+        // Check for custom poster first
+        if (this.poster) {
+            this.domRefImg.webp.srcset = this.poster;
+            this.domRefImg.jpeg.srcset = this.poster;
+            this.domRefImg.fallback.src = this.poster;
+            this.domRefImg.fallback.setAttribute('aria-label', `${this.videoPlay}: ${this.videoTitle}`);
+            this.domRefImg.fallback.setAttribute('alt', `${this.videoPlay}: ${this.videoTitle}`);
+            return;
+        }
         // TODO(slightlyoff): TODO: cache API responses
         // we don't know which image type to preload, so warm the connection
         LiteVimeoEmbed.addPrefetch('preconnect', 'https://i.vimeocdn.com/');
         // Hack to use the oEmbed API endpoint now that v2 is shut down
-        const apiUrl = `https://vimeo.com/api/oembed.json?url=https://vimeo.com/${this.videoId}`;
+        const videoUrl = this.videoHash
+            ? `https://vimeo.com/${this.videoId}/${this.videoHash}`
+            : `https://vimeo.com/${this.videoId}`;
+        const apiUrl = `https://vimeo.com/api/oembed.json?url=${encodeURIComponent(videoUrl)}`;
         // Now fetch the JSON that locates our placeholder from vimeo's JSON API
         const apiResponse = (await (await fetch(apiUrl)).json());
         // Extract the image id, e.g. 819916979, from a URL like:

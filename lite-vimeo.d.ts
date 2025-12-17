@@ -37,6 +37,8 @@ export declare class LiteVimeoEmbed extends HTMLElement {
     set autoLoad(value: boolean);
     get autoPlay(): boolean;
     set autoPlay(value: boolean);
+    get poster(): string | null;
+    set poster(url: string | null);
     /**
      * Define our shadowDOM for the component
      */
